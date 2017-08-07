@@ -1,0 +1,77 @@
+body{padding:0px;margin:0px;}
+ul{list-style:none;padding:0px;margin:0px;}
+a{text-decoration:none;line-height:30px;}
+img{border:0px;}
+ol{margin:0px;padding-right:30px;}
+img{border:0px;}
+#share{width:120px;height:200px;background:#cfc;position:absolute;margin-top:50px;left:-120px;}
+#share span{position:absolute;background:#cfc;color:white;border:1px solid green;border-left:0px;font-size:20px;width:25px;height:90px;right:-25px;top:50px;text-align:center;line-height:30px;}
+#share ul{margin:10px;}
+#share li{height:30px;}
+#share a:hover{color:red;text-decoration:underline;}
+#advertise{width:100px;height:200px;background:#caf;position:absolute;right:0px;top:200px;}
+#advertise ul{margin-top:40px;margin-left:10px;}
+#advertise a:hover{color:green;text-decoration:underline;}
+#contain{width:1000px;margin:0px auto;}
+#header{width:100%;height:150px;}
+#logo{width:300px;height:100px;float:left;}
+#logo img{margin-top:20px;}
+#search{width:430px;height:100px;float:left;margin-left:10px;}
+.input1{width:300px;height:40px;font-size:20px;margin-top:20px;border:2px solid green;}
+#input2{width:80px;height:30px;background:#8db;}
+#tool{width:240px;height:100px;float:right;}
+#tool ul{font-size:20px;margin-top:10px;}
+#tool li{float:left;width:110px;height:40px;}
+#tool a{color:black;}
+#tool a:hover{position:relative;top:1px;left:1px;}
+#nav{width:100%;height:50px;background:#7af;float:left;clear:both;text-align:center;}
+#nav ul{padding:0px;margin:0px;}
+#nav a{color:black;}
+#nav li{float:left;width:100px;height:50px;line-height:50px;margin-left:10px;}
+.intr{width:100%;height:20px;clear:both;}
+#content{width:100%;height:740px;}
+#main{width:380px;height:420px;background:#bda;float:left;}
+#main h3{padding:10px;margin:0px;font-size:30px;}
+#main h3 a{background:url(../pic/book.png) no-repeat left center;padding-left:20px;color:black;}
+#main a:hover{color:red;}
+#first{width:370px;height:30px;margin-left:10px;}
+#classes{width:360px;height:30px;background:#aca;text-align:center;}
+#first a{color:black;}
+#classes li{width:59px;float:left;height:29px;margin-left:10px;}
+.sumsclass{background:#cff;border:1px solid green;border-bottom:0px;}
+#classes .sumsclass a:hover{color:blue;}
+.sum{width:360px;height:330px;background:#cff;display:none;}
+#vertical{width:370px;height:420px;background:#ffd;float:left;margin-left:10px;}
+#vertical h3{padding:10px;margin:0px;background:url(../pic/nav.jpg) no-repeat left center;}
+#month{width:30px;height:370px;background:#dff;margin-left:10px;float:left;text-align:center;}
+.mon{background:#dfc;border:1px solid green;border-right:0px;}
+#month li{float:left;width:29px;height:48px;margin-top:10px;line-height:25px;}
+.monthBook{width:300px;height:370px;background:#dfc;float:left;display:none;}
+.monthBook ul{margin-left:20px;margin-top:20px;}
+.monthBook a{color:black;}
+.monthBook a:hover{position:relative;top:1px;left:1px;color:blue;}
+#choice{width:60px;height:400px;float:left;margin-left:10px;}
+#choice input{width:60px;height:30px;padding:0px;margin-left:0px;margin-top:40px;background:#fdf;}
+#scroll{width:150px;height:420px;float:right;position:relative;overflow:hidden;margin-right:1px;border:1px dotted;}
+#scroll ul{position:absolute;top:0px;left:0px;}
+#scroll li{width:150px;height:150px;margin:0px;padding:0px;float:left;}
+#foot{width:650px;height:300px;float:left;margin-top:10px;}
+.news{width:320px;height:300px;background:#acf;}
+.news ul{margin-left:20px;}
+.news a:hover{color:red;position:relative;top:1px;left:1px;}
+.left{float:left;}
+.right{float:right;}
+#renew{width:330px;height:280px;border:2px solid blue;float:right;margin-top:20px;}
+#day{width:100%;height:30px;border-bottom:1px dotted green;}
+#day li{float:left;width:40px;height:30px;margin-left:6px;line-height:30px;text-align:center;cursor:pointer;}/*鼠标变手状*/
+.day{color:red;}
+.books{width:100%;height:250px;display:none;}
+.books ul{margin-left:20px;}
+.books a{color:black;}
+.books a:hover{color:red;}
+#footer{width:100%;height:100px;background:black;color:white;font-size:15px;text-align:center;}
+#footer a{color:white;}
+#footer a:hover{color:red;}
+#introduce{width:100%;height:40px;font-size:20px;line-height:40px;}
+#introduce li{float:left;margin-left:80px;}
+#introduce a{background:url(../pic/essay.png) no-repeat left center;padding-left:20px;}

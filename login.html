@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>邑大书城登陆</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meat name="keyword" content="登陆" />
+	<meta name="description" content="邑大书城登陆" />
+	<link rel="stylesheet" type="text/css" href="css/login.css" />
+	<base target="_blank"></base>
+	<script>
+	window.onload=function()
+	{
+		var oTwo1=document.getElementById('two-dim');/*二维码出现*/
+		var oTwo2=document.getElementById('two-dims');
+		var time=null;
+		oTwo2.onmouseover=oTwo1.onmouseover=function ()
+		{
+			clearTimeout(time);
+			oTwo2.style.display='block';
+		}
+		oTwo2.onmouseout=oTwo1.onmouseout=function ()
+		{
+			time=setTimeout(function (){oTwo2.style.display='none';},500);
+		}
+
+		var oBut=document.getElementById('obut');/*按钮变色*/
+        oBut.onmouseover=function()
+        {
+        	oBut.style.background='rgb(144,238,144)';
+        }
+        oBut.onmouseout=function()
+        {
+        	oBut.style.background='#46f';
+        } 
+
+        var oTime=document.getElementById('sytime');/*当前时间*/
+        var aImg=oTime.getElementsByTagName('img');
+        tick();setInterval(tick,1000);
+        function tick()
+        {
+            var oDate=new Date();
+            var str=timechange(oDate.getHours())+timechange(oDate.getMinutes())+timechange(oDate.getSeconds());
+            for(var i=0;i<aImg.length;i++)
+            {
+                aImg[i].src='pic/time/'+str.charAt(i)+'.png';
+            }
+        }
+        function timechange(n)
+        {
+        	if(n<10)
+        	{
+        		return '0'+n;
+        	}
+        	else
+        	{
+        		return ''+n;
+        	}
+        } 
+
+        var oClock=document.getElementById('clock');
+        /*让时间出现,上面有时间div定义好的全局变量，所以不定义sytime*/
+        oClock.onmouseover=function()
+        {
+        	oTime.style.display='block';
+        };
+        oClock.onmouseout=function()
+        {
+        	
+        	setTimeout(function ()
+        	{
+        		oTime.style.display='none';
+        	},800);
+        }
+	};
+	</script>
+</head>
+<body>
+<div id="contain">
+	<div id="header"></div>
+	<div id="content">
+		<div id="left"><a href=""><img src="pic/logo.png" /></a></div>
+		<div id="right">
+			<ul>
+				<li><a href="homepage.html">首页|</a></li>
+				<li><a href="register.html">注册|</a></li>
+			</ul>
+		</div>
+		<div id="login">
+		    <form action="" method="get">
+			<div class="t">
+				登陆账号:<input type="text" placeholder="手机号/邮箱" name="usename" /><br>
+				登陆密码:<input type="password" placeholder="密码" name="passwor" /><br>
+			</div><br>
+				<input type="checkbox" id="choose" name="choos" value="1">记住登陆状态 
+				<span id="word"><a href ="">忘记密码?</a></span>
+			<div id="two-dim"><a href=""><img src="pic/two.png"></a>
+			</div>
+			<div id="two-dims"></div>
+			<div id="but">
+				<input type="submit" value="登陆" id="obut" name="sub">
+			</div>
+			<div id="otherlogin"><a href="">qq快速登陆</a></div>
+			</form>
+		</div>
+		<div id="foot">
+			<div id="leftfoot">
+				<h3>为成长积蓄力量！ 站长统计</h3>
+				<span><a href="">关于书城|</a>  <a href="">工作机会|</a>  <a href="">联系我们|</a>   <a href="">法律声明| </a>  </span>
+			</div>
+			<div id="rightfoot">
+			    <div id="sytime">
+			        <p>当前系统时间</p>
+			    	<img src="pic/time/0.png" />
+                    <img src="pic/time/0.png" />
+                    :
+					<img src="pic/time/0.png" />
+					<img src="pic/time/0.png" />
+					:
+					<img src="pic/time/0.png" />
+					<img src="pic/time/0.png" />
+			    </div>
+				<p><a href="">网站首页</a> <a href="">关于我们</a> <a href="">人才招聘</a> <a href="">讲师招募</a></p> 
+				<p><a href="">联系我们</a> <a href="">加入我们</a><a href=""> 高校联盟</a></a> <a href="">友情连接</a></p>
+				<div id="time"><a href=""><img src="pic/time.png" id="clock" alt="当前时间" title="当前时间"></a></div>
+			</div>
+			<div id="footer">
+			<hr>
+			<span>©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.备案号: 粤ICP备13003602号-4经营许可证编号: 粤B2-20130198营业执照</span>
+			<p>邑大书城版权所有</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

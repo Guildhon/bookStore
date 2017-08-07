@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>邑大书城</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="keywords" content="五邑大学，书，购物">
+	<meta name="description" content="本站为邑大学子服务，旨在避免每年辅导书等浪费，也提供了学生自主创业机会">
+	<link rel="stylesheet" type="text/css" href="css/homepage.css" />
+	<base target="_blank"></base>
+	<script>
+	window.onload=function()
+	{
+		var oDivbs=document.getElementById('book0');/*所有图书选项卡*/
+		var oDivbt=document.getElementById('bookscont');
+		var aDivbs=oDivbs.getElementsByTagName('div');
+		var aDivbt=oDivbt.getElementsByTagName('div');
+		var tome=null;
+		for(var i=0;i<aDivbs.length;i++)
+		{
+			aDivbs[i].index=i;
+			aDivbt[i].index=i;
+			aDivbt[i].onmouseover=aDivbs[i].onmouseover=function()
+			{
+				for(var i=0;i<aDivbt.length;i++)
+				{
+					aDivbt[i].style.display='none';
+				}
+				clearTimeout(tome);
+				aDivbt[this.index].style.display='block';
+			};
+			aDivbt[i].onmouseout=aDivbs[i].onmouseout=function()
+			{
+				var j=this.index;
+				tome=setTimeout(function(){aDivbt[j].style.display='none';},200);
+			};
+		}
+
+
+	};
+
+    window.onscroll=function ()/*广告位*/
+   {
+	var oDiv=document.getElementById('Div2');
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	StarMove(parseInt((document.documentElement.clientHeight-oDiv.offsetHeight)/2+scrollTop));
+   };
+	var tim=null;
+	function StarMove(iTarget)
+	{   
+		
+		var oDiv=document.getElementById('Div2');
+		clearInterval(tim);
+		tim=setInterval(function (){
+			var speed=(iTarget-oDiv.offsetTop)/4;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if (oDiv.offsetTop==iTarget) 
+			{
+				clearInterval(tim);
+			}
+			else
+			{
+				oDiv.style.top=oDiv.offsetTop+speed+'px';
+			}
+		},30);
+	}
+	</script>
+</head>
+<body>
+<div id="Div">
+	<p><a href="">qq空间</a></p>
+	<p><a href="">百度空间</a></p>
+	<p><a href="">微博空间</a></p>
+	<p><a href="">微信</a></p>
+	<span>分享到</span>
+</div>
+<div id="Div2"><a href="#toped" target="_self"><span>广告位，点我回上方</span></a></div>
+<div id="sum">
+	<div id="header">
+		<div id="logo">
+			<a href="" title="邑大书城"><img src="pic/logo.png" alt="邑大书城" /></a>
+		</div>
+		<div id="find">
+		  <span>本站共收录了<a href="" name="toped">10089</a>本书,并有众多图书馆提供借书<span>
+		  <div id="pic">
+			<form action="" method="post">
+				<input type="text" class="tex" placeholder="搜索内容" />
+				     <!--readonly="true"写上去后就text就不能写了,  disable没提交-->
+				<input type="button" class="but1" >
+			</form><div style="height:4px;width:100%;"></div>
+            热门搜索词:<span id="name"><a href="firstBook.html">三体</a> <a href="">三国演义</a> <a href="">水浒传</a> <a href="">红楼梦</a> <a href="">龙族</a></span>
+		  </div>
+		</div>
+		<div id="help">
+			<ul>
+				<li><a href="login.html" style="background:url(pic/1.png) no-repeat left center;">登陆</a></li>
+				<li><a href="register.html" style="background:url(pic/6.png) no-repeat left center;">注册</a></li>
+				<li><a href="" style="background:url(pic/4.png) no-repeat left center;">留言</a></li>
+				
+			</ul>
+			<ul class="uL1">
+				<li><a href="" style="background:url(pic/3.png) no-repeat left center;">排行榜</a></li>
+				<li><a href="" style="background:url(pic/5.png) no-repeat left center;">观看记录</a></li>
+			</ul>
+		</div>
+		<div class="interval"></div>
+		<div id="nav">
+			<ul class="uL2">
+				<li><a href="frame.html">后台首页</a></li>
+				<li><a href="">新书资讯</a></li>
+                <li><a href="">新书上架</a></li>
+                <li><a href="">海外名著</a></li>
+                <li><a href="">国之精华</a></li>
+			</ul>
+			<ul class="uL3">
+				<li><a href="">查看购物车</a></li>
+				<li><a href="">邑大图书馆</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="interval"></div>
+	<div id="contain">
+		<div id="books">
+			<div id="book1">图书分类</div>
+			<div id="book0">
+			<div class="book2">
+			    <h3>教材 ></h3> 
+			    <p><a href="">教材|</a> <a href="">外语|</a> <a href="">考试|</a> <a href="">教辅|</a></p>
+			</div><hr>
+			
+			<div class="book2">
+				<h3>电子书 ></h3>
+				<p><a href="">五邑大学出品|</a> 
+			</div><hr>
+			<div class="book2">
+				<h3>青春 ></h3>
+				<p><a href="">青春文学|</a><a href="">幽默|</a><a href="">动漫|</a></p>
+			</div><hr>
+			<div class="book2">
+				<h3>人文社科 ></h3>
+				<p><a href="">历史|</a><a href="">生物|</a><a href="">军事|</a><a href="">哲学|</a></p>
+				<p><a href="">古籍|</a><a href="">法律|</a><a href="">科学|</a><a href="">心理学|</a></p>
+			</div><hr>
+			<div class="book2">
+				<h3>生活 ></h3>
+				<p><a href="">|</a><a href="">幽默|</a><a href="">动漫|</a></p>
+			</div><hr>
+			<div class="book2">
+				<h3>五邑大学计院 ></h3>
+				<p><a href="">html|</a><a href="">c语言|</a><a href="">java|</a></p>
+			</div><hr>
+			<div class="book2">
+				<h3>五邑大学外院 ></h3>
+				<p><a href="">日语|</a><a href="">法语|</a><a href="">德语|</a></p>
+			</div><hr>
+			<div class="book2">
+				<h3><a href="">查看更多 ></a></h3>
+			</div>
+			</div>
+		</div>
+		<div id="bookscont">
+			<div class="content1 content0">
+				<p>成人教育| 大学本科| 大专|</p>
+				<p>英语| 法语| 德语|</p>
+				<p>四级考试| 六级考试|</p>
+			</div>
+			<div class="content2 content0">
+				<p>毛概| 马克思| 恩格斯|</p>
+				<p>英语| 计算机概论|</p>
+			</div>
+			<div class="content3 content0">
+				<p>青春| 意林| 读者|</p>
+				<p>英语背诵| </p>
+			</div>
+			<div class="content4 content0">
+				<p>历史时刻| 走进科学| 你猜|</p>
+				<p>唯心| 卡欧|</p>
+			</div>
+			<div class="content5 content0">
+				<p>漫画| 儿童| 手办|</p>
+				<p>故事| 童话|</p>
+			</div>
+			<div class="content6 content0">
+				<p>计算机概论| c语言| 数学|</p>
+				<p>电子信息| 英语|</p>
+			</div>
+			<div class="content7 content0">
+				<p>德语| 日语| 实践|</p>
+				<p>翻译|</p>
+			</div>
+		</div>
+		<div id="paper">
+		 	<div id="p1">
+		 	</div>
+		 	<div id="p2">
+		 		<h3>最新动态：</h3>
+		 		<p><a href="">致敬阎肃：感动中国的艺术人生</a></p>
+		 		<p><a href="">阅享频道：美国人重新发现的乾隆帝</a></p>
+		 		<p><a href="">致敬汉学家孔飞力：代表作《叫魂》</a></p>
+		 		</ul>
+		 	</div>
+		 	<div id="p3">
+		 		<h3>你可能喜欢的作者：</h3>
+		 		<li><a href="">龙应台</a></li>
+		 		<li><a href="">纳兰容若</a></li>
+		 		<li><a href="">莫言</a></li>
+		 		<li><a href="">吴苏眉</a></li>
+		 		<li><a href="">林语堂</a></li>
+		 		<li><a href="">雨果</a></li>
+		 		<li><a href="">顾城</a></li>
+		 		<li><a href="">陈染</a></li>
+		 		<li><a href="">吴淡如</a></li>
+		 		<li><a href="">冰心</a></li>
+		 		<li><a href="">饶雪漫</a></li>
+		 		<li><a href="">林语堂</a></li>
+		 		<li><a href="">雨果</a></li>
+		 		<li><a href="">顾城</a></li>
+		 		<li><a href="">陈染</a></li>
+		 	</div>
+		 	<div id="p4">
+		 		<h2>新书上架</h2>
+		 		<div class="b">
+		 			<a href=""><img src="pic/b1.jpg" title="心不累活法" alt="心不累活法" />
+		 			<span>心不累活法$67</span></a>
+		 		</div>
+		 		<div class="b">
+		 			<a href=""><img src="pic/b2.jpg" title="童话" alt="童话"/>
+		 			<span>童话$57</span></a>
+		 		</div>
+		 		<div class="b">
+		 			<a href=""><img src="pic/b3.jpg" title="庭守之犬" alt="庭守之犬"/>
+		 			<span>庭守之犬$45</span></a>
+		 		</div>
+		 		<div class="b">
+		 			<a href=""><img src="pic/b4.jpg" title="脑袋怪东西" alt="脑袋怪东西"/>
+		 			<span>脑袋怪东西$47</span></a>
+		 		</div>
+		 		<div class="b">
+		 			<a href=""><img src="pic/b5.jpg" title="禅宗兴起" alt="禅宗兴起"/>
+		 			<span>禅宗兴起$77</span></a>
+		 		</div>
+		 		<div class="b">
+		 			<a href=""><img src="pic/b6.jpg" title="领导力" alt="领导力"/>
+		 			<span>领导力$45</span></a>
+		 		</div>
+		 	</div>
+		</div>
+	</div>
+	<div class="interval"></div>
+	<div></div>
+	<div class="interval"></div>
+	<div id="div0">
+		<div class="divleft">
+			<h2><a href="">||购物指南：</h2></li><br>
+			<p><a href="">礼品卡支付</a> ||<a href="">银行转帐</a> ||<a href="">会员</a></p><p><a href="">账户管理</a> ||<a href="">订单状态说明</a>  ||<a href="">修改</a></p>
+			<p><a href=""> 退换货进度查询||</a></p><p>
+		</div>
+		<div class="divright">
+			<div id="clas">
+				<ul>
+		  	 		<li class="choose"><a href="" >总榜</a></li>
+		  	 		<li><a href="">历史</a></li>
+		  	 		<li><a href="">传记</a></li>
+		  	 		<li><a href="">管理</a></li>
+		  	 		<li><a href="">童话</a></li>	
+		  	 	</ul>
+			</div>
+			<div id="sums">
+			<div class="newbook" style="display:block;">
+				<ul>
+					<li><a href="">神奇校车·图画书版（全11册)</a></li>
+		  	 		<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">股市聊聊吧</a></li>
+		  	 		<li><a href="">国民读本</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">股市聊聊吧</a></li>
+		  	 		<li><a href="">国民读本</a></li>
+				</ul>
+			</div>
+			<div class="newbook">
+				<ul>
+					<li><a href="">从0到1：开启商业与未来的秘密 【美】彼得 </a></li>
+	  	 			<li><a href="">追风筝的人</a></li>
+	  	 			<li><a href="">影响力（经典版）</a></li>
+	  	 			<li><a href="">国民</a></li>
+	  	 			<li><a href="">大哥教你炒股票</a></li>
+	  	 			<li><a href="">图画书版</a></li>
+	  	 			<li><a href="">阿米巴经营 - 稻盛和夫</a></li>
+				</ul>
+			</div>
+			<div class="newbook">
+				<ul>
+					<li><a href="">追风筝的人</a></li>
+	  	 			<li><a href="">皮囊（感动百万读者的国民读本，韩寒监制)</a></li>
+	  	 			<li><a href="">书店</a></li>
+	  	 			<li><a href="">感动百万读者</a></li>
+	  	 			<li><a href="">图画书版</a></li>
+	  	 			<li><a href="">有钱没钱看习惯</a></li>
+	  	 			<li><a href="">褚橙方法</a></li>
+	  	 			<li><a href="">岛上书店</a></li>
+				</ul>
+			</div>
+			<div class="newbook">
+				<ul>
+					<li><a href="">绝望锻炼了我：朴槿惠自传</a></li>
+	  	 			<li><a href="">向前一步(珍藏版)</a></li>
+	  	 			<li><a href="">韩寒监制</a></li>
+	  	 			<li><a href="">国民读本</a></li>
+	  	 			<li><a href="">我们仨（新版）</a></li>
+	  	 			<li><a href="">图画书版</a></li>
+	  	 			<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+	  	 			<li><a href="">光明豆豆</a></li>
+				</ul>
+			</div>
+			<div class="newbook">
+				<ul>
+					<li><a href="">共享经济1+2</a></li>
+	  	 			<li><a href="">追风筝的人</a></li>
+	  	 			<li><a href="">向前一步(珍藏版)</a></li>
+	  	 			<li><a href="">假如给我三天光明</a></li>
+	  	 			<li><a href="">感动百万读者</a></li>
+	  	 			<li><a href="">图画书版</a></li>
+	  	 			<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div id="div0_a">
+		<a href=""><img src="pic/bai.png" alt="白说" title="白说"></a>
+	</div>
+	<div id="div1">
+	<ul>
+		<li><img src="pic/b1.jpg" /></li>
+		<li><img src="pic/b2.jpg" /></li>
+		<li><img src="pic/b3.jpg" /></li>
+		<li><img src="pic/b4.jpg" /></li>
+		<li><img src="pic/b5.jpg" /></li>
+		<li><img src="pic/b6.jpg" /></li>
+		<li><img src="pic/b7.jpg" /></li>
+		<li><img src="pic/b8.jpg" /></li>
+	</ul>
+   </div>
+
+   <div class="interval"></div>
+   <div id="footer">
+   <hr>
+   	<span><a href="">公司简介</a> | <a href="">网站联盟</a> | <a href="">广告服务</a> |<a href="">招商</a> |<a href="">官方索引</a></span>
+   	<div id="foot">
+   		<p>2016 五邑大学书城 本站不提供任何下载服务，所有内容均来自分享站点所提供的公开引用资源！</p>
+   	</div>
+   </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	function toMove()/*无缝滚动*/
+	{
+		var oDiv1=document.getElementById('div1');
+		var oUl=oDiv1.getElementsByTagName('ul')[0];
+		var aLi=oUl.getElementsByTagName('li');
+		var speed=2;
+		oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+		oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+		function move(){
+			if(oUl.offsetLeft<-oUl.offsetWidth/2)
+			{
+				oUl.style.left='0';
+			}
+			if(oUl.offsetLeft>0)
+			{
+				oUl.style.left=-oUl.offsetWidth/2+'px';
+			}
+			oUl.style.left=oUl.offsetLeft+speed+'px';
+		   }
+		var time=setInterval(move,30);
+		oDiv1.onmouseover=function()
+		{
+			clearInterval(time);
+		};
+		oDiv1.onmouseout=function()
+		{
+			 time=setInterval(move,30);
+		}
+	}
+	toMove();
+	var oDiv=document.getElementById('Div');
+	Share();
+		function Share()
+		{
+			oDiv.onmouseover=function()
+			{
+				starMove(0);
+			};
+			oDiv.onmouseout=function()
+			{
+				starMove(-150);
+			};
+	    } 
+	    var times=null;
+	    function starMove(value)
+	    {
+	    	var speed;
+	    	if(oDiv.offsetLeft<value)
+	    	{
+	    		speed=10;
+	    	}
+	    	else
+	    	{
+	    		speed=-10;
+	    	}
+	    	clearInterval(times);
+	    	times=setInterval(function (){
+	    		if(oDiv.offsetLeft==value)
+	    		{
+	    			clearInterval(times);
+	    		}
+	    		else
+	    		{
+	    			oDiv.style.left=oDiv.offsetLeft+speed+'px';
+	    		}
+	    	},30);
+	    }
+	    var oClass=document.getElementById('clas');//总榜选项卡
+		var aLis=oClass.getElementsByTagName('li');
+		var oSums=document.getElementById('sums');
+		var aDiv=oSums.getElementsByTagName('div');
+		for(var i=0;i<aLis.length;i++)
+		{
+			aLis[i].index=i;
+			aLis[i].onmouseover=function()
+			{
+				for(var i=0;i<aLis.length;i++)
+				{
+					aLis[i].className='';
+					aDiv[i].style.display='none';
+				}
+				this.className='choose';
+				aDiv[this.index].style.display='block';
+			}
+		}
+</script>

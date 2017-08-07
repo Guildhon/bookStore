@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>书籍排行榜</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8;">
+	<meta name="keywords" content="五邑大学，书，购物">
+	<meta name="description" content="本站为邑大学子服务，现在选出排名靠前的书">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
+	<base target="_blank"></base>
+	<script type="text/javascript">
+	window.onload=function()
+	{
+		var oIntp=document.getElementById('input2');/*搜索按钮变色*/
+		oIntp.onmouseover=function()
+		{
+			oIntp.style.background='#4fa';
+			oIntp.style.color='white';
+		}
+		oIntp.onmouseout=function()
+		{
+			oIntp.style.background='#8db';
+			oIntp.style.color='black';
+		}
+
+		var oNav=document.getElementById('nav');/*菜单条*/
+		var aLi=oNav.getElementsByTagName('li');
+		var aA=oNav.getElementsByTagName('a');
+		for(var i=0;i<aLi.length;i++)
+		{
+			aLi[i].index=i;
+			aLi[i].onmouseover=function()
+			{
+				this.style.background='#7df';
+                aA[this.index].style.color='white';
+			}
+			aLi[i].onmouseout=function()
+			{
+				this.style.background='#7af';
+				aA[this.index].style.color='black';
+			}
+		}
+        
+		var oSums=document.getElementById('sums'); /*图书排行榜*/
+		var aDivBook=oSums.getElementsByTagName('div');
+		var oClass=document.getElementById('classes');
+		var aLia=oClass.getElementsByTagName('li')
+		for(var j=0;j<aLia.length;j++)
+		{
+			aLia[j].index=j;
+			aLia[j].onmouseover=function()
+			{
+				for(var i=0;i<aLia.length;i++)
+				{
+					aLia[i].className='';
+					aDivBook[i].style.display='none';
+				}
+				this.className='sumsclass';
+				aDivBook[this.index].style.display='block';
+			}
+		}
+
+		var oVertic=document.getElementById('vertic');/*上半年欢迎书*/
+		var oMonth=document.getElementById('month');
+		var aLib=oMonth.getElementsByTagName('li');
+		var aDivbooks=oVertic.getElementsByTagName('div');
+		for(var i=0;i<aLib.length;i++)
+		{
+			aLib[i].index=i;
+			aLib[i].onmouseover=function()
+			{
+				for(var i=0;i<aLib.length;i++)
+				{
+					aLib[i].className='';
+					aDivbooks[i].style.display='none';
+				}
+				this.className='mon';
+				aDivbooks[this.index].style.display='block';
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+<div id="share" />
+	<ul>
+		<li><a href="" style="background:url(pic/share/1.png) no-repeat left center;padding-left:22px">QQ空间</a></li>
+		<li><a href="" style="background:url(pic/share/4.png) no-repeat left center;padding-left:22px">QQ</a></li>
+		<li><a href="" style="background:url(pic/share/3.png) no-repeat left center;padding-left:22px">微博</a></li>
+		<li><a href="" style="background:url(pic/share/2.png) no-repeat left center;padding-left:22px">百度空间</a></li>
+		<li><a href="" style="background:url(pic/share/5.png) no-repeat left center;padding-left:22px">贴吧</a></li>
+	</ul>
+	<span>分享到</span>
+</div>
+<script>
+    var oShare=document.getElementById('share');
+	Share();
+	function Share()
+	{ 
+		oShare.onmouseover=function()
+		{
+			onMove(0);
+			
+		};
+		oShare.onmouseout=function()
+		{
+			onMove(-120);
+		};
+	}
+    var times=null;//全局变量，始终操纵唯一一个times
+	function onMove(value)
+	{
+		var speed;
+		if(oShare.offsetLeft<value)
+		{
+			speed=10;
+		}
+		else
+		{
+			speed=-10;
+		} 
+		clearInterval(times);
+		times=setInterval(function (){
+			if(oShare.offsetLeft==value)
+			{
+				clearInterval(times);
+			}
+			else
+			{
+				oShare.style.left=oShare.offsetLeft+speed+'px';
+			}
+		},30);
+	}
+</script>
+<div id="advertise">
+	<ul>
+		<li><a href="#top" target="_self">回到上面</a></li>
+		<li id="oli"><a>点我消失</a></li>
+	</ul>
+</div>
+<script>
+	window.onscroll=function()//广告位
+	{
+		var oAdvertise=document.getElementById('advertise');
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop; 
+		starMove(parseInt((document.documentElement.clientHeight-oAdvertise.offsetHeight)/2  +scrollTop));//scrollTop为相对滚动条移动
+	};
+	var timed=null;
+	function starMove(iTarget)
+	{
+		var oAdvertise=document.getElementById('advertise');
+		clearInterval(timed);
+		timed=setInterval(function(){
+			var speed=(iTarget-oAdvertise.offsetTop)/4;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(iTarget==oAdvertise.offsetTop)
+			{
+				clearInterval(timed);
+			}
+			else
+			{
+				oAdvertise.style.top=oAdvertise.offsetTop+speed+'px';
+			}
+		},30); 
+	}
+	var oLi=document.getElementById('oli');//广告位消失
+	oLi.onclick=function()
+	{
+		var oAdvertise=document.getElementById('advertise'); 
+		oAdvertise.style.display='none';
+	}
+</script>
+<div id="contain">
+	<div id="header"><a href="" name="top"></a>
+		<div id="logo"><a href="homepage.html"><img src="pic/logo.png" title="五邑大学书城" alt="五邑大学书城"></a></div>
+		<div id="search">
+			<form action="" method="">
+				<input type="text" placeholder="--搜索内容--" class="input1" name="searchs">
+				<input type="button" value="搜索全站" id="input2">
+			</form>
+		</div>
+		<div id="tool">
+			<ul>
+				<li><a href="" style="background:url(pic/3.png) no-repeat left center;padding-left:30px;">留言</a></li>
+				<li><a href="" style="background:url(pic/4.png) no-repeat left center;padding-left:30px;">浏览记录</a></li>
+				<li><a href="login.html" style="background:url(pic/1.png) no-repeat left center;padding-left:30px;">登陆</a></li>
+				<li><a href="register.html" style="background:url(pic/6.png) no-repeat left center;padding-left:30px;">注册</a></li>
+			</ul>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="homepage.html">首页</a></li>
+				<li><a href="frame.html">后台</a></li>
+				<li><a href="firstBook.html">第一本书</a></li>
+				<li><a href="">邑大图书馆</a></li>
+				<li><a href="">新书资讯</a></li>
+				<li><a href="">新书上架</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="intr">
+		
+	</div>
+	<div id="content">
+	  	<div id="main">
+	  	 	<h3><a href="">图书畅销榜</a></h3>
+	  	 	<div id="first">
+		  	 	<div id="classes">
+		  	 		<ul>
+		  	 			<li class="sumsclass" ;><a href="" >总榜</a></li>
+		  	 			<li><a href="">历史</a></li>
+		  	 			<li><a href="">传记</a></li>
+		  	 			<li><a href="">管理</a></li>
+		  	 			<li><a href="">童话</a></li>
+		  	 		</ul>
+		  	 	</div>
+		  	 	<div id="sums">
+		  	 	<div class="sum" style="display:block;">
+		  	 		<ol>
+		  	 			<li><a href="">神奇校车·图画书版（全11册)</a></li>
+		  	 			<li><a href="">追风筝的人</a></li>
+		  	 			<li><a href="">股市聊聊吧</a></li>
+		  	 			<li><a href="">国民读本</a></li>
+		  	 			<li><a href="">感动百万读者</a></li>
+		  	 			<li><a href="">图画书版</a></li>
+		  	 			<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 			<li><a href="">窗边的小豆豆</a></li>
+		  	 			<li><a href="">岛上书店</a></li>
+		  	 			<li><a href="">没有谁是一座孤岛，每本书</a></li>
+		  	 		</ol>
+		  	 	</div>
+		  	 	<div class="sum">
+		  	 		<ol>
+		  	 			<li><a href="">从0到1：开启商业与未来的秘密 【美】彼得 </a></li>
+		  	 			<li><a href="">追风筝的人</a></li>
+		  	 			<li><a href="">影响力（经典版）</a></li>
+		  	 			<li><a href="">国民</a></li>
+		  	 			<li><a href="">大哥教你炒股票</a></li>
+		  	 			<li><a href="">图画书版</a></li>
+		  	 			<li><a href="">阿米巴经营 - 稻盛和夫</a></li>
+		  	 			<li><a href="">窗边的小豆豆</a></li>
+		  	 			<li><a href="">岛上书店</a></li>
+		  	 			<li><a href="">大数据时代</a></li>
+		  	 		</ol>
+		  	 	</div>
+		  	 	<div class="sum">
+		  	 		<ol>
+		  	 			<li><a href="">岛上书店</a></li>
+		  	 			<li><a href="">追风筝的人</a></li>
+		  	 			<li><a href="">皮囊（感动百万读者的国民读本，韩寒监制)</a></li>
+		  	 			<li><a href="">书店</a></li>
+		  	 			<li><a href="">感动百万读者</a></li>
+		  	 			<li><a href="">图画书版</a></li>
+		  	 			<li><a href="">有钱没钱看习惯</a></li>
+		  	 			<li><a href="">褚橙方法</a></li>
+		  	 			<li><a href="">岛上书店</a></li>
+		  	 			<li><a href="">没有谁是一座孤岛，每本书</a></li>
+		  	 		</ol>
+		  	 	</div>
+		  	 	<div class="sum">
+		  	 		<ol>
+		  	 			<li><a href="">绝望锻炼了我：朴槿惠自传</a></li>
+		  	 			<li><a href="">向前一步(珍藏版)</a></li>
+		  	 			<li><a href="">韩寒监制</a></li>
+		  	 			<li><a href="">国民读本</a></li>
+		  	 			<li><a href="">我们仨（新版）</a></li>
+		  	 			<li><a href="">图画书版</a></li>
+		  	 			<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 			<li><a href="">光明豆豆</a></li>
+		  	 			<li><a href="">岛上书店</a></li>
+		  	 			<li><a href="">假如给我三天</a></li>
+		  	 		</ol>
+		  	 	</div>
+		  	 	<div class="sum">
+		  	 		<ol>
+		  	 			<li><a href="">共享经济1+2</a></li>
+		  	 			<li><a href="">追风筝的人</a></li>
+		  	 			<li><a href="">向前一步(珍藏版)</a></li>
+		  	 			<li><a href="">假如给我三天光明</a></li>
+		  	 			<li><a href="">感动百万读者</a></li>
+		  	 			<li><a href="">图画书版</a></li>
+		  	 			<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 			<li><a href="">窗边的小豆豆</a></li>
+		  	 			<li><a href="">岛上书店</a></li>
+		  	 			<li><a href="">没有谁是一座孤岛，每本书</a></li>
+		  	 		</ol>
+		  	 	</div>
+		  	 	</div>
+	  	 	</div>
+		</div>
+		<div id="vertical">
+			<h3>上半年受欢迎书：</h3>
+			<div id="month">
+				<ul>
+					<li class="mon">一月</li>
+					<li>二月</li>
+					<li>三月</li>
+					<li>四月</li>
+					<li>五月</li>
+					<li>六月</li>
+				</ul>
+			</div>
+			<div id="vertic">
+			<div class="monthBook" style="display:block;">
+				<ul>
+					<li><a href="">共享经济1+2</a></li>
+		  	 		<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">向前一步(珍藏版)</a></li>
+		  	 		<li><a href="">假如给我三天光明</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+		  	 		<li><a href="">没有谁是一座孤岛，每本书</a></li>
+				</ul>
+			</div>
+			<div class="monthBook">
+				<ul>
+					<li><a href="">绝望锻炼了我：朴槿惠自传</a></li>
+		  	 		<li><a href="">向前一步(珍藏版)</a></li>
+		  	 		<li><a href="">韩寒监制</a></li>
+		  	 		<li><a href="">国民读本</a></li>
+		  	 		<li><a href="">我们仨（新版）</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 		<li><a href="">光明豆豆</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+		  	 		<li><a href="">假如给我三天</a></li>
+				</ul>
+			</div>
+			<div class="monthBook">
+				<ul>
+					<li><a href="">岛上书店</a></li>
+		  	 		<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">皮囊（感动百万读者的国民读本，韩寒监制)</a></li>
+		  	 		<li><a href="">书店</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">有钱没钱看习惯</a></li>
+		  	 		<li><a href="">褚橙方法</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+		  	 		<li><a href="">没有谁是一座孤岛，每本书</a></li>
+				</ul>
+			</div>
+			<div class="monthBook">
+				<ul>
+					<li><a href="">神奇校车·图画书版（全11册)</a></li>
+		  	 		<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">股市聊聊吧</a></li>
+		  	 		<li><a href="">国民读本</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+		  	 		<li><a href="">没有谁是一座孤岛，每本书</a></li>
+				</ul>
+			</div>
+			<div class="monthBook">
+				<ul>
+					<li><a href="">从0到1：开启商业与未来的秘密 【美】彼得 </a></li>
+		  	 		<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">影响力（经典版）</a></li>
+		  	 		<li><a href="">国民</a></li>
+		  	 		<li><a href="">大哥教你炒股票</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">阿米巴经营 - 稻盛和夫</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+		  	 		<li><a href="">大数据时代</a></li>	
+				</ul>
+			</div>
+			<div class="monthBook">
+				<ul>
+					<li><a href="">阿米巴经营 - 稻盛和夫</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+					<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">股市聊聊吧</a></li>
+					<li><a href="">绝望锻炼了我：朴槿惠自传</a></li>
+		  	 		<li><a href="">向前一步(珍藏版)</a></li>
+					<li><a href="">水图画书版</a></li>
+					<li><a href="">股票</a></li>
+					<li><a href="">时代未来的秘密</a></li>
+					<li><a href="">感动百万读者</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		<div id="choice">
+			<input type="button" value="向上滚">
+			<input type="button" value="向下滚">
+			<input type="button" value="加速">
+			<input type="button" value="减速">
+		</div>
+		<div id="scroll">
+			<ul>
+				<li><img src="pic/b1.jpg"></li>
+				<li><img src="pic/b2.jpg"></li>
+				<li><img src="pic/b3.jpg"></li>
+				<li><img src="pic/b4.jpg"></li>
+				<li><img src="pic/b5.jpg"></li>
+				<li><img src="pic/b6.jpg"></li>
+			</ul>
+		</div>
+        <script type="text/javascript">
+			function Scrolling()
+			{
+				var oChoice=document.getElementById('choice');
+				var aInput=oChoice.getElementsByTagName('input');
+				var oScroll=document.getElementById('scroll');
+				var oUl=oScroll.getElementsByTagName('ul')[0];
+				var aLi=oScroll.getElementsByTagName('li');
+				var speed=-2;
+				for(var k=0;k<aInput.length;k++)
+				{
+					aInput[k].index=k;
+					aInput[k].onmouseover=function()
+					{
+						this.style.background='#ffc';
+						this.style.color='blue';
+					}
+					aInput[k].onmouseout=function()
+					{
+						this.style.background='#fdf';
+						this.style.color='black';
+					}
+					aInput[k].onclick=function()
+					{
+						if(this.index==0)
+						{
+							speed=-2
+						}
+						else if(this.index==1)
+						{
+							speed=2;
+						}
+						else if(this.index==2)
+						{
+							if(speed<=0)
+							{
+								speed-=2;
+							}
+							else
+							{
+								speed+=2;
+							}
+						}
+						else if(this.index==3)
+						{
+							if(speed<=0)
+							{
+								speed+=2;
+							}
+							else
+							{
+								speed-=2;
+							}
+						}
+
+					}
+				}
+				oUl.innerHTML+=oUl.innerHTML;
+				oUl.style.height=aLi[0].offsetHeight*aLi.length+'px';
+                function Move()
+                {
+                	if(oUl.offsetTop<-oUl.offsetHeight/2)
+					{
+						oUl.style.top='0';
+					}
+					if(oUl.offsetTop>0)
+					{
+						oUl.style.top=-oUl.offsetHeight/2+'px';
+					}
+					oUl.style.top=oUl.offsetTop+speed+'px';
+                }
+				var timer=setInterval(Move,30);
+				oScroll.onmouseover=function()
+				{
+					clearInterval(timer);
+				}
+				oScroll.onmouseout=function()
+				{
+					timer=setInterval(Move,30);
+				}
+			}
+			Scrolling();
+		</script>
+		<div id="foot">
+			<div class="news left">
+				<h3>最新新闻:</h3>
+				<ul>
+					<li><a href="">致敬阎肃：感动中国的艺术人生</a></li>
+					<li><a href="">阅享频道：美国人重新发现的乾隆帝</a></li>
+					<li><a href="">致敬汉学家孔飞力：代表作《叫魂》</a></li>
+					<li><a href="">礼品卡支付</a></li>
+					<li><a href="">致敬汉学家孔飞力</a></li>
+					<li><a href="">感动中国的艺术人生</a></li>
+					<li><a href="">代表作重新发现的乾隆帝</a></li>
+				</ul>
+			</div>
+			<div class="news right">
+				<h3>最新预告:</h3>
+				<ul>
+					<li><a href="">没有谁是一座孤岛，每本书</a></li>
+					<li><a href="">岛上书店</a></li>
+					<li><a href="">《叫魂》</a></li>
+					<li><a href="">礼品卡支付</a></li>
+					<li><a href="">窗边的小豆豆</a></li>
+					<li><a href="">艺术人生</a></li>
+					<li><a href="">神奇校车·图画书版（全11册)</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="renew">
+			<div id="day">
+				<ul>
+					<li class="day">周一</li>
+					<li>周二</li>
+					<li>周三</li>
+					<li>周四</li>
+					<li>周五</li>
+					<li>周六</li>
+					<li>周日</li>
+				</ul>
+			</div>
+			<div id="booksSum">
+			<div class="books" style="display:block;">
+			    <ul>
+				    <li><a href="">股市聊聊吧</a></li>
+		  	 		<li><a href="">国民读本</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+		  	 	</ul>
+			</div>
+			<div class="books">
+				<ul>
+					<li><a href="">没有谁是一座孤岛，每本书</a></li>
+					<li><a href="">岛上书店</a></li>
+					<li><a href="">《叫魂》</a></li>
+					<li><a href="">礼品卡支付</a></li>
+					<li><a href="">窗边的小豆豆</a></li>
+					<li><a href="">艺术人生</a></li>
+					<li><a href="">神奇校车·图画书版（全11册)</a></li>
+				</ul>
+			</div>
+			<div class="books">
+				<ul>
+					<li><a href="">致敬阎肃：感动中国的艺术人生</a></li>
+					<li><a href="">阅享频道：美国人重新发现的乾隆帝</a></li>
+					<li><a href="">致敬汉学家孔飞力：代表作《叫魂》</a></li>
+					<li><a href="">礼品卡支付</a></li>
+					<li><a href="">致敬汉学家孔飞力</a></li>
+					<li><a href="">感动中国的艺术人生</a></li>
+					<li><a href="">代表作重新发现的乾隆帝</a></li>
+				</ul>
+			</div>
+			<div class="books">
+				<ul>
+					<li><a href="">阿米巴经营 - 稻盛和夫</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+					<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">股市聊聊吧</a></li>
+					<li><a href="">绝望锻炼了我：朴槿惠自传</a></li>
+		  	 		<li><a href="">向前一步(珍藏版)</a></li>
+					<li><a href="">水图画书版</a></li>
+				</ul>
+			</div>
+			<div class="books">
+				<ul>
+					<li><a href="">从0到1：开启商业与未来的秘密 【美】彼得 </a></li>
+		  	 		<li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">影响力（经典版）</a></li>
+		  	 		<li><a href="">国民</a></li>
+		  	 		<li><a href="">大哥教你炒股票</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">阿米巴经营 - 稻盛和夫</a></li>
+				</ul>
+			</div>
+			<div class="books">
+			    <ul>   
+			        <li><a href="">追风筝的人</a></li>
+		  	 		<li><a href="">皮囊（感动百万读者的国民读本，韩寒监制)</a></li>
+		  	 		<li><a href="">书店</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">有钱没钱看习惯</a></li>
+		  	 		<li><a href="">褚橙方法</a></li>
+		  	 	</ul>
+			</div>
+			<div class="books">
+				<ul>
+					<li><a href="">向前一步(珍藏版)</a></li>
+		  	 		<li><a href="">假如给我三天光明</a></li>
+		  	 		<li><a href="">感动百万读者</a></li>
+		  	 		<li><a href="">图画书版</a></li>
+		  	 		<li><a href="">图画书版神奇校车·图画书版全11册</a></li>
+		  	 		<li><a href="">窗边的小豆豆</a></li>
+		  	 		<li><a href="">岛上书店</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		<script>
+		var oDay=document.getElementById('day');//点击切换选项卡
+		var aLiDay=oDay.getElementsByTagName('li');
+		var oBooksSum=document.getElementById('booksSum');
+		var aDivBook=oBooksSum.getElementsByTagName('div');
+		for(var i=0;i<aLiDay.length;i++)
+		{
+			aLiDay[i].index=i;
+			aLiDay[i].onclick=function()
+			{
+				for(var i=0;i<aLiDay.length;i++)
+				{
+					aLiDay[i].className='';
+					aDivBook[i].style.display='none';
+				}
+				this.className='day';
+				aDivBook[this.index].style.display='block';
+			}
+		}
+		</script>
+	</div>
+	<div id="footer">
+	    <div id="introduce">
+	    	<ul>
+		    	<li><a href="">加入我们</a></li>
+		    	<li><a href="">移动应用</a></li>
+		    	<li><a href="">工作室</a></li>
+		    	<li><a href="">关于我们</a></li>
+		    	<li><a href="homepage.html">网站首页</a></li>
+            </ul>
+	    </div>
+		<hr>
+		<span>2016 五邑大学书城 本站不提供任何下载服务，所有内容均来自分享站点所提供的公开引用资源！</span><br>
+		<span>Copyright © 邑大书城 wyusc.com</span>
+	</div>
+</div>
+</body>
+</html>

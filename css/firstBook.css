@@ -1,0 +1,61 @@
+body,h3{padding:0px;margin:0px;}
+img{border:0px;}
+a{text-decoration:none;}
+ul{list-style:none;}
+#remind{width:100%;height:40px;background:#cca;text-align:center;font-size:16px;}
+#reminds{line-height:40px;margin:12px auto;}
+#remind a:hover{color:red;position:relative;top:1px;left:1px;}
+#contain{width:1000px;height:1900px;margin:0px auto;border-left:1px dotted;border-right:1px dotted;}
+.interval{width:100%;height:10px;float:left;clear:both;overflow:hidden;}
+#header{width:100%;}
+#logo{width:245px;float:left;height:100px;}
+#logo img{padding-top:10px;}
+#introduce{width:300px;height:100px;border:1px dotted;float:right;background:rgb(255,251,240);}
+#introduce ul{padding:0px;}
+#introduce li{float:left;width:90px;height:30px;margin-top:10px;}
+#introduce a{background:url(../pic/book.png) no-repeat left center;padding-left:20px;color:black;}
+#introduce a:hover{color:red;position:relative;top:1px;left:1px;text-decoration:underline;}
+#nav{width:100%;height:40px;background:rgb(193,210,240);float:left;color:white;font-size:20px;line-height:40px;text-align:center;margin-top:5px;}
+#nav ul{margin:0px;}
+#nav li{float:left;width:100px;height:40px;margin-right:10px;}
+#nav a:hover{color:white;}
+#content{width:100%;float:left;}
+.crumb{width:100%;height:40px;line-height:40px;font-size:15px;}
+.crumb a:hover{color:green;}
+.crumb span{margin-left:300px;}
+#from{width:100%;height:130px;clear:both;text-align:center;}
+.bookname{width:100%;height:90px;line-height:90px;font-size:40px;}
+#bookintrod{width:100%;height:110px;}
+#catalog{width:100%;height:40px;background:rgb(230,200,164);}
+#catalog li{float:left;width:120px;height:40px;font-size:20px;line-height:40px;margin-left:100px;}
+#catalog a{background:url(../pic/5.png) no-repeat left center;padding-left:29px;}
+#catalog a:hover{color:red;font-size:23px;}
+#bio table{width:98%;height:300px;margin:0px auto;margin-top:20px;text-align:center;}
+#bio table a{color:black;}
+#bio th{background:#ccc;}
+#bio a:hover{color:red;}
+#outher{width:100%;height:310px;}
+#list{width:200px;height:305px;float:left;margin-left:10px;border:1px solid;border-top:5px solid rgb(100,100,240);}
+h3{padding-top:10px;}
+#list span{width:60px;height:30px;margin-left:5px;float:left;line-height:30px;text-align:center;border-style:solid;border:0px;}
+#clas{width:200px;height:30px;background:#ccc;}
+#mostnew{border:1px solid;}
+.changed{background:rgb(235,235,203);}
+.comp{width:200px;height:240px;display:none;overflow:hidden;background:rgb(235,235,203);}
+.comp ul{margin:10px;padding:0px;}
+.comp li{line-height:30px;}
+.comp a:hover{position:relative;top:1px;left:1px;}
+.comp2{background:rgb(235,235,203);}
+#main{width:770px;height:310px;float:right;}
+#essay{width:380px;height:310px;border:1px solid;float:left;background:#99f;}
+#essay h3 a{background:url(../pic/essay.png) no-repeat left center;padding:20px;color:black;}
+#essay ul{margin:20px;padding:0px;list-style:square;}
+#essay li a{color:black;font-size:20px;line-height:40px;}
+#poet{width:380px;height:307px;border:1px dotted;border-top:3px solid green;float:right;}
+#poet h3 a{background:url(../pic/essay.png) no-repeat left center;padding:20px;color:black;}
+#poet ul{margin:20px;padding:0px;list-style:square;}
+#poet li a{color:black;font-size:20px;line-height:40px;}
+#poet li a:hover{color:green;text-decoration:underline;}
+#footer{width:100%;color:white;overflow:hidden;height:110px;float:left;clear:both;border:1px solid;border-top:0px;background:black;margin-top:10px;}
+.foot{padding-left:220px;}
+#footer a:hover{color:white;}
